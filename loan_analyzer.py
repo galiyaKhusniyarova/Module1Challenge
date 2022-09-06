@@ -203,4 +203,13 @@ output_path = Path("inexpensive_loans.csv")
 
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
-# YOUR CODE HERE!
+
+#outsource https://code.tutsplus.com/ru/tutorials/how-to-read-and-write-csv-files-in-python--cms-29907
+import csv
+with open('inexpensive_loans.csv', 'w') as csvfile:
+    writer = csv.DictWriter(csvfile, fieldnames = header)
+    writer.writeheader()
+    writer.writerow({'loan_price': 500, 'remaining_months': 13, 'repayment_interval': 'bullet', 'future_value': 1000})
+    writer.writerow({'loan_price': 200, 'remaining_months': 16, 'repayment_interval': 'bullet', 'future_value': 1000})
+
+    print("Writing complete")
